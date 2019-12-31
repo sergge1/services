@@ -1,8 +1,8 @@
 #!/bin/bash
 # coding: utf-8
 
-# chmod +x uninstall.sh
-# ./uninstall.sh
+# sudo chmod +x uninstall.sh
+# sudo ./uninstall.sh
 # list of installed packages (with their size) sorted by size:
 # dpkg-query -Wf '${Installed-Size}\t${Package}\n' | sort -nr | more
 
@@ -42,7 +42,6 @@ sudo apt-get remove --purge --autoremove -y pypy-lib
 sudo apt-get remove --purge --autoremove -y oracle-java8-jdk
 sudo apt-get remove --purge --autoremove -y vim-tiny
 sudo apt-get remove --purge --autoremove -y vim-common
-sudo apt-get remove --purge --autoremove -y openssh*
 
 
 sudo rm /usr/share/raspi-ui-overrides/applications/python-games.desktop
