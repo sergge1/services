@@ -1,0 +1,13 @@
+[Plymouth Theme]
+Name=smartmirror
+Description=Simple theme that shows a rotating infinity sign in the center of the screen
+ModuleName=two-step
+
+[two-step]
+ImageDir=/usr/share/plymouth/themes/smartmirror
+HorizontalAlignment=.5
+VerticalAlignment=.5
+Transition=merge-fade
+TransitionDuration=2.5
+BackgroundStartColor=0x000000
+BackgroundEndColor=0x000000

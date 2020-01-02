@@ -1,3 +1,7 @@
+Скрипт добавляет сервис в systemd tempcontrol.
+Сервис каждую минуту отслеживает температуру устройтва, и если она превышает 75 С,
+то устройство отключается автоматически.
+
 sudo chmod u+x tempcontrol.sh
 
 systemd forum discussion
@@ -7,8 +11,12 @@ https://blog.skbali.com/2019/03/start-a-script-on-boot-using-systemd/
 sudo cp /home/pi/services/tempcontrol/tempcontrol.service /etc/systemd/system/tempcontrol.service
 sudo cp /home/pi/services/tempcontrol/tempcontrol.timer /etc/systemd/system/tempcontrol.timer
 
+Отобржение лога всех операций в системе:
 journalctl -e
 ps -ef | grep monitor
+
+Просмотреть работу отдельного сервиса:
+systemctl status tempcontrol.service
 
 Обновить системд команды
 
