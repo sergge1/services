@@ -1,0 +1,7 @@
+[Unit]
+Description=Service shut-off Raspberry when the temperature is over 80C. Run each 1 minute.
+
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /home/pi/services/tempcontrol/temcontrol.sh
