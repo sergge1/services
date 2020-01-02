@@ -1,0 +1,22 @@
+{
+	"apps":[{
+		"name"	:	"LED-MQTT",
+		"script":	"/home/pi/mqtt_clients/scripts/led.sh"
+	},
+	{
+		"name"	:	"PIR-MQTT",
+		"script":	"/home/pi/mqtt_clients/scripts/pir.sh"
+	},
+	{
+		"name"	:	"System-MQTT",
+		"script":	"/home/pi/mqtt_clients/scripts/system.sh"
+	},
+	{
+		"name"	:	"Buttons-MQTT",
+		"script":	"/home/pi/mqtt_clients/scripts/buttons.sh"
+	},
+	{
+		"name"	:	"Audio-MQTT",
+		"script":	"/home/pi/mqtt_clients/scripts/audio.sh"
+	}]
+}
