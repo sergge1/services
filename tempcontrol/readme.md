@@ -3,6 +3,13 @@ sudo chmod u+x tempcontrol.sh
 systemd forum discussion
 https://blog.skbali.com/2019/03/start-a-script-on-boot-using-systemd/
 
+
+sudo cp /home/pi/services/tempcontrol/tempcontrol.service /etc/systemd/system/tempcontrol.service
+sudo cp /home/pi/services/tempcontrol/tempcontrol.timer /etc/systemd/system/tempcontrol.timer
+
+journalctl -e
+ps -ef | grep monitor
+
 Обновить системд команды
 
 systemctl daemon-reload
