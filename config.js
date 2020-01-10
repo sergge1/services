@@ -26,6 +26,7 @@ var config = {
 		{
 			module: "updatenotification",
 			position: "top_bar",
+			disabled: true,
 			config: {
 				updateInterval: 10 * 60 * 1000, // every 10 minutes
 					}
@@ -53,13 +54,16 @@ var config = {
 		},
 		{
 			module: "calendar",
-			header: "Свята в Україні",
+			header: "Календар подій",
 			position: "top_left",
 			config: {
 				calendars: [
 					{
 						symbol: "calendar-check",
-						url: "https://calendar.google.com/calendar/ical/uk.ukrainian%23holiday%40group.v.calendar.google.com/public/basic.ics"					}
+						url: "https://calendar.google.com/calendar/ical/uk.ukrainian%23holiday%40group.v.calendar.google.com/public/basic.ics"},
+											{
+						symbol: "user-friends",
+						url: "https://calendar.google.com/calendar/ical/hvozdyk.family%40gmail.com/private-2845d189915d42bf46415e890975c4e1/basic.ics"}
 				],
 				maximumEntries: 10, // Total Maximum Entries
 				maximumNumberOfDays: 365,
@@ -100,6 +104,7 @@ var config = {
 		{
 			module: "compliments",
 			position: "lower_third",
+			disabled: true,
 			config: {
 				compliments: {
 					anytime: [
@@ -263,7 +268,7 @@ var config = {
 				lengthDescription: 400,
 				hideLoading: false,
 				reloadInterval: 5 * 60 * 1000, // every 5 minutes
-				updateInterval: 10 * 1000,
+				updateInterval: 15 * 1000,
 				animationSpeed: 2.5 * 1000,
 				maxNewsItems: 0, // 0 for unlimited
 				ignoreOldItems: false,
@@ -281,6 +286,7 @@ var config = {
 		module: 'email',
                 position: 'top_left',
                 header: 'Email',
+                disabled: true,
                 config: {
                     accounts: [
                         {
@@ -290,12 +296,12 @@ var config = {
                             port: 993,
                             tls: true,
                             authTimeout: 10000,
-                            numberOfEmails: 2
+                            numberOfEmails: 5
 
                         }
                     ],
                     fade: true,
-                    maxCharacters: 30
+                    maxCharacters: 20
                 }
 	},
 		{
@@ -303,7 +309,7 @@ var config = {
 		config: {
 			sensorPin: 11,
 			powerSaving: true,
-			powerSavingDelay: 20
+			powerSavingDelay: 60
 			
 		}
 	},
