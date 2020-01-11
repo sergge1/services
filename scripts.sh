@@ -112,13 +112,13 @@ fi
 
 # install SmartMirror splashscreen
 if [[ $choiceMirrorSplash =~ ^[Yy]$ ]]; then
-	bash $logdir1/sm_splash/splashinst.sh
+	bash $logdir/sm_splash/splashinst.sh
 fi
 
 # disable splash screen and 4 raspberries
 if [[ $choiceDisableBerries =~ ^[Yy]$ ]]; then
-	sudo echo disable_splash=1 >>/boot/config.txt
-	sudo echo logo.nologo >>/boot/cmdline.txt
+	sudo echo disable_splash=1 >> /boot/config.txt
+	sudo echo logo.nologo >> /boot/cmdline.txt
 fi
 
 #autostart MM with Desktop
@@ -177,13 +177,7 @@ if [[ $choiceCloneAndInstallMMModules =~ ^[Yy]$ ]]; then
 	echo '/MMM-PIR встановлено'
 fi
 
-# clone MQTT clients
-if [[ $choiceCloneMQTTClients =~ ^[Yy]$ ]]; then
-	echo 'Клоную гіт mqtt_clients'
-	sudo rm -rf home/pi/mqtt_clients
-	git clone --depth=1 https://github.com/sergge1/mqtt_clients.git /home/pi/mqtt_clients
-	echo 'Гіт mqtt_clients успішно склоновано'
-fi
+
 
 # install Python packages (to SUDO)
 if [[ $choiceCloneAndInstallPackages =~ ^[Yy]$ ]]; then
@@ -194,6 +188,14 @@ if [[ $choiceCloneAndInstallPackages =~ ^[Yy]$ ]]; then
 	echo 'Пакети jsonschema, paho-mqtt та rpi_ws281x встановлено'
 fi
 
+# clone MQTT clients
+if [[ $choiceCloneMQTTClients =~ ^[Yy]$ ]]; then
+	echo 'Клоную гіт mqtt_clients'
+	sudo rm -rf home/pi/mqtt_clients
+	git clone --depth=1 https://github.com/sergge1/mqtt_clients.git /home/pi/mqtt_clients
+	echo 'Гіт mqtt_clients успішно склоновано'
+fi
+
 # clone and install MM controller
 if [[ $choiceCloneAndInstallMMController =~ ^[Yy]$ ]]; then
 	sudo rm -rf home/pi/MagicMirror
@@ -202,3 +204,4 @@ if [[ $choiceCloneAndInstallMMController =~ ^[Yy]$ ]]; then
 fi
 
 #use rpi_background.jpg as background picture
+#docker run -p 1883:1883 --restart=always eclipse-mosquitto
