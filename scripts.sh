@@ -9,7 +9,7 @@ msgcolor=`echo "\033[01;31m"` # bold red
 menu=`echo "\033[36m"` #Blue
 number=`echo "\033[33m"` #yellow
 
-printf "${number}  1. ${menu}Видалити необов'язкові пакети на Raspberry? (Y/n)? ${normal}"
+printf "${number}  1. ${menu}Видалити необов'язкові пакети на Raspberry? (Y/n)? ${normal}" | tee -a $logfile
 choiceDelUnnecessaryApp=n read choiceDelUnnecessaryApp
 printf "${number}  2. ${menu}Встановити оновлення всіх пакетів на Raspberry? (Y/n)? ${normal}"
 choiceInstRaspbUpdates=y read choiceInstRaspbUpdates
