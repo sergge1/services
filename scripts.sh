@@ -1,49 +1,50 @@
 #/bin/bash
 
-if [ -z "$BASH_VERSION" ]
-then
-    exec bash "$0" "$@"
-fi
-
 logdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
 logfile=$logdir/install.log
+echo -e "\e[96mСКРИПТ ВСТАНОВЛЕННЯ ЗАПУЩЕНО...\e[0m" | tee -a $logfile
 
-choiceDelUnnecessaryApp=n
-read -p "Видаляти необов'язкові пакети на Raspberry? (y/N)?" choiceDelUnnecessaryApp
-choiceInstRaspbUpdates=y
-read -p "Встановлювати оновлення всіх пакетів на Raspberry? (Y/n)?" choiceInstRaspbUpdates
-choiceInstDocker=y
-read -p "Встановлювати Docker? (Y/n)?" choiceInstDocker
-choiceInstSamba=y
-read -p "Встановлювати сервер Samba? (Y/n)?" choiceInstSamba
-choiceInstNodeJS=y
-read -p "Встановлювати NodeJS? (Y/n)?" choiceInstNodeJS
-choiceInstMosquitto=y
-read -p "Завантажувати docker-контейнер MQTT брокера Eclipse-Mosquitto? (Y/n)?" choiceInstMosquitto
-choiceInstPM2=y
-read -p "Встановлювати сервіс PM2? (Y/n)?" choiceInstPM2
-choiceDisableScreensaver=y
-read -p "Відключити скрінсейвер? (Y/n)?" choiceDisableScreensaver
-choiceMirrorSplash=y
-read -p "Встановлювати анімацію вкл\вимкн SmartMirror? (Y/n)?" choiceMirrorSplash
-choiceDisableBerries=y
-read -p "Відключити заставку включення та 4 полуниці при ввімкненні? (Y/n)?" choiceDisableBerries
-choiceAutostartMMWithDesctop=y
-read -p "Встановити автозапуск MagicMirror з декстоп-інтерфейсом? (Y/n)?" choiceAutostartMMWithDesctop
-choiceAutostartMMWithOutDesctop=y
-read -p "Встановити автозапуск MagicMirror БЕЗ декстоп-інтерфейсу? (Y/n)?" choiceAutostartMMWithOutDesctop
-choiceCloneMagicMirror=y
-read -p "Клонувати MagicMirror? (Y/n)?" choiceCloneMagicMirror
-choiceInstallMagicMirror=y
-read -p "Встановлювати MagicMirror? (Y/n)?" choiceInstallMagicMirror
-choiceCloneAndInstallMMModules=y
-read -p "Завантажити та встановити модулі MagicMirror? (Y/n)?" choiceCloneAndInstallMMModules
-choiceCloneAndInstallMMController=y
-read -p "Завантажити на встановити MMController? (Y/n)?" choiceCloneAndInstallMMController
-choiceCloneMQTTClients=y
-read -p "Завантажити клієнти MQTT? (Y/n)?" choiceCloneMQTTClients
-choiceCloneAndInstallPackages=y
-read -p "Встановити пакети: jsonschema, paho-mqtt та rpi_ws281x? (Y/n)?" choiceCloneAndInstallPackages
+normal=`echo "\033[m"`
+msgcolor=`echo "\033[01;31m"` # bold red
+menu=`echo "\033[36m"` #Blue
+number=`echo "\033[33m"` #yellow
+
+printf "${number}  1. ${menu}Видалити необов'язкові пакети на Raspberry? (Y/n)? ${normal}"
+choiceDelUnnecessaryApp=n read choiceDelUnnecessaryApp
+printf "${number}  2. ${menu}Встановити оновлення всіх пакетів на Raspberry? (Y/n)? ${normal}"
+choiceInstRaspbUpdates=y read choiceInstRaspbUpdates
+printf "${number}  3. ${menu}Встановити Docker? (Y/n)? ${normal}"
+choiceInstDocker=y read choiceInstDocker
+printf "${number}  4. ${menu}Встановити сервер Samba? (Y/n)? ${normal}"
+choiceInstSamba=y read choiceInstSamba
+printf "${number}  5. ${menu}Встановити NodeJS? (Y/n)? ${normal}"
+choiceInstNodeJS=y read choiceInstNodeJS
+printf "${number}  6. ${menu}Завантажити docker-контейнер MQTT брокера Eclipse-Mosquitto? (Y/n)? ${normal}"
+choiceInstMosquitto=y read choiceInstMosquitto
+printf "${number}  7. ${menu}Встановити сервіс PM2? (Y/n)? ${normal}"
+choiceInstPM2=y read choiceInstPM2
+printf "${number}  8. ${menu}Відключити скрінсейвер? (Y/n)? ${normal}"
+choiceDisableScreensaver=y read choiceDisableScreensaver
+printf "${number}  9. ${menu}Встановити анімацію вкл\вимкн SmartMirror? (Y/n)? ${normal}"
+choiceMirrorSplash=y read choiceMirrorSplash
+printf "${number}  10. ${menu}Відключити заставку включення та 4 полуниці при ввімкненні? (Y/n)? ${normal}"
+choiceDisableBerries=y read choiceDisableBerries
+printf "${number}  11. ${menu}Встановити автозапуск MagicMirror з декстоп-інтерфейсом? (Y/n)? ${normal}"
+choiceAutostartMMWithDesctop=y read choiceAutostartMMWithDesctop
+printf "${number}  12. ${menu}Встановити автозапуск MagicMirror БЕЗ декстоп-інтерфейсу? (Y/n)? ${normal}"
+choiceAutostartMMWithOutDesctop=y read choiceAutostartMMWithOutDesctop
+printf "${number}  13. ${menu}Клонувати MagicMirror? (Y/n)? ${normal}"
+choiceCloneMagicMirror=y read choiceCloneMagicMirror
+printf "${number}  14. ${menu}Встановити MagicMirror? (Y/n)? ${normal}"
+choiceInstallMagicMirror=y read choiceInstallMagicMirror
+printf "${number}  15. ${menu}Завантажити та встановити модулі MagicMirror? (Y/n)? ${normal}"
+choiceCloneAndInstallMMModules=y read choiceCloneAndInstallMMModules
+printf "${number}  16. ${menu}Завантажити на встановити MMController? (Y/n)? ${normal}"
+choiceCloneAndInstallMMController=y read choiceCloneAndInstallMMController
+printf "${number}  17. ${menu}Завантажити клієнти MQTT? (Y/n)? ${normal}"
+choiceCloneMQTTClients=y read choiceCloneMQTTClients
+printf "${number}  18. ${menu}Встановити пакети: jsonschema, paho-mqtt та rpi_ws281x? (Y/n)? ${normal}"
+choiceCloneAndInstallPackages=y read choiceCloneAndInstallPackages
 
 # uninstall unnecessary apps on raspberry
 if [[ $choiceDelUnnecessaryApp =~ ^[Yy]$ ]]; then
@@ -71,11 +72,11 @@ fi
 # install samba
 if [[ $choiceInstSamba =~ ^[Yy]$ ]]; then
 	echo 'Встановлюю SAMBA SERVER'
-	sudo apt-get install -y samba samba-common-bin
+	#sudo apt-get install -y samba samba-common-bin
 	sudo rm /etc/samba/smb.conf
-	sudo cp /home/pi/smsetup/files/smb.conf /etc/samba
+	sudo cp /home/pi/services/files/smb.conf /etc/samba
 
-	sudo smbpasswd -a pi
+	#sudo smbpasswd -a pi
 	sudo systemctl restart smbd
 	echo 'Встановлюю SAMBA успішно встановлено'
 fi
@@ -117,31 +118,31 @@ fi
 
 # disable splash screen and 4 raspberries
 if [[ $choiceDisableBerries =~ ^[Yy]$ ]]; then
-	sudo echo disable_splash=1 >> /boot/config.txt
-	sudo echo logo.nologo >> /boot/cmdline.txt
+	sudo su -c "echo disable_splash=1 >> /boot/config.txt"
+	sudo su -c "echo logo.nologo >> /boot/cmdline.txt"
 fi
 
 #autostart MM with Desktop
 if [[ $choiceAutostartMMWithDesctop =~ ^[Yy]$ ]]; then
-	sudo echo npm start --prefix /home/pi/MagicMirror >>/etc/xdg/lxsession/LXDE-pi/autostart
+	sudo -u root echo npm start --prefix /home/pi/MagicMirror >>/etc/xdg/lxsession/LXDE-pi/autostart
 fi
 
 #autostart MM withOUT Desktop
 if [[ $choiceAutostartMMWithOutDesctop =~ ^[Yy]$ ]]; then
-	sudo echo npm start --prefix /home/pi/MagicMirror >>/home/pi/.config/lxsession/LXDE-pi/autostart
+	sudo -u root echo npm start --prefix /home/pi/MagicMirror >>/home/pi/.config/lxsession/LXDE-pi/autostart
 fi
 
 # clone MagicMirror git
 if [[ $choiceCloneMagicMirror =~ ^[Yy]$ ]]; then
 	sudo rm -rf home/pi/MagicMirror
-	sudo git clone --depth=1 https://github.com/MichMich/MagicMirror.git /home/pi/MagicMirror
-	cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
+	git clone --depth=1 https://github.com/MichMich/MagicMirror.git /home/pi/MagicMirror
+	sudo cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
 fi
 
 # install MagicMirror
 if [[ $choiceInstallMagicMirror =~ ^[Yy]$ ]]; then
 	npm -y install --prefix /home/pi/MagicMirror
-	cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
+	sudo cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
 fi
 
 # install and clone MM modules
@@ -183,7 +184,7 @@ fi
 # install Python packages (to SUDO)
 if [[ $choiceCloneAndInstallPackages =~ ^[Yy]$ ]]; then
 	echo 'Встановлюю пакети jsonschema, paho-mqtt та rpi_ws281x'
-	sudo pip install jsonschema
+	pip install jsonschema
 	sudo pip install paho-mqtt
 	sudo pip install rpi_ws281x
 	echo 'Пакети jsonschema, paho-mqtt та rpi_ws281x встановлено'
@@ -192,14 +193,14 @@ fi
 # clone MQTT clients
 if [[ $choiceCloneMQTTClients =~ ^[Yy]$ ]]; then
 	echo 'Клоную гіт mqtt_clients'
-	sudo rm -rf home/pi/mqtt_clients
+	rm -rf home/pi/mqtt_clients
 	git clone --depth=1 https://github.com/sergge1/mqtt_clients.git /home/pi/mqtt_clients
 	echo 'Гіт mqtt_clients успішно склоновано'
 fi
 
 # clone and install MM controller
 if [[ $choiceCloneAndInstallMMController =~ ^[Yy]$ ]]; then
-	sudo rm -rf home/pi/MagicMirror
+	rm -rf home/pi/MagicMirror
 	git clone --depth=1 https://github.com/kolserdav/mmcontroller.git /home/pi/mmcontroller
 	npm -y install --prefix /home/pi/mmcontroller
 fi
