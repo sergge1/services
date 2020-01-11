@@ -47,7 +47,7 @@ read -p "Встановити пакети: jsonschema, paho-mqtt та rpi_ws281
 
 # uninstall unnecessary apps on raspberry
 if [[ $choiceDelUnnecessaryApp =~ ^[Yy]$ ]]; then
-	sudo /home/pi/services/uninstall.sh
+	sudo /home/pi/smsetup/uninstall.sh
 fi
 
 # install updates to raspberry
@@ -73,7 +73,7 @@ if [[ $choiceInstSamba =~ ^[Yy]$ ]]; then
 	echo 'Встановлюю SAMBA SERVER'
 	sudo apt-get install -y samba samba-common-bin
 	sudo rm /etc/samba/smb.conf
-	sudo cp /home/pi/services/files/smb.conf /etc/samba
+	sudo cp /home/pi/smsetup/files/smb.conf /etc/samba
 
 	sudo smbpasswd -a pi
 	sudo systemctl restart smbd
@@ -106,7 +106,7 @@ fi
 # disable screensaver
 if [[ $choiceDisableScreensaver =~ ^[Yy]$ ]]; then
 	echo 'Відключаю скрінсейвер'
-	sudo /home/pi/services/screensaveroff.sh
+	sudo /home/pi/smsetup/screensaveroff.sh
 	echo 'Скрінсейвер відключено'
 fi
 
@@ -135,12 +135,13 @@ fi
 if [[ $choiceCloneMagicMirror =~ ^[Yy]$ ]]; then
 	sudo rm -rf home/pi/MagicMirror
 	sudo git clone --depth=1 https://github.com/MichMich/MagicMirror.git /home/pi/MagicMirror
+	cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
 fi
 
 # install MagicMirror
 if [[ $choiceInstallMagicMirror =~ ^[Yy]$ ]]; then
 	npm -y install --prefix /home/pi/MagicMirror
-	cp -f /home/pi/services/files/config.js /home/pi//MagicMirror/config/config.js
+	cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
 fi
 
 # install and clone MM modules
