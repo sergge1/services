@@ -55,6 +55,3 @@ sudo rm /usr/share/raspi-ui-overrides/applications/wolfram*.desktop
 
 sudo apt-get clean -y
 sudo apt-get autoremove -y
-
-sudo apt update -y
-sudo apt upgrade -y
