@@ -13,41 +13,76 @@ blue=$(echo "\033[36m")         #Blue
 yellow=$(echo "\033[33m")       #Yellow
 
 printf "${yellow}  1. ${blue}Видалити необов'язкові пакети на Raspberry? (Y/n)? ${normal}" | tee -a $logfile
-choiceDelUnnecessaryApp=n read choiceDelUnnecessaryApp
+choiceDelUnnecessaryApp=n 
+read choiceDelUnnecessaryApp
+
 printf "${yellow}  2. ${blue}Встановити оновлення всіх пакетів на Raspberry? (Y/n)? ${normal}"
-choiceInstRaspbUpdates=y read choiceInstRaspbUpdates
+choiceInstRaspbUpdates=y 
+read choiceInstRaspbUpdates
+
 printf "${yellow}  3. ${blue}Встановити Docker? (Y/n)? ${normal}"
-choiceInstDocker=y read choiceInstDocker
+choiceInstDocker=y 
+read choiceInstDocker
+
 printf "${yellow}  4. ${blue}Встановити сервер Samba? (Y/n)? ${normal}"
-choiceInstSamba=y read choiceInstSamba
+choiceInstSamba=y 
+read choiceInstSamba
+
 printf "${yellow}  5. ${blue}Встановити NodeJS? (Y/n)? ${normal}"
-choiceInstNodeJS=y read choiceInstNodeJS
+choiceInstNodeJS=y 
+read choiceInstNodeJS
+
 printf "${yellow}  6. ${blue}Завантажити docker-контейнер MQTT брокера Eclipse-Mosquitto? (Y/n)? ${normal}"
-choiceInstMosquitto=y read choiceInstMosquitto
+choiceInstMosquitto=y 
+read choiceInstMosquitto
+
 printf "${yellow}  7. ${blue}Встановити сервіс PM2? (Y/n)? ${normal}"
-choiceInstPM2=y read choiceInstPM2
+choiceInstPM2=y 
+read choiceInstPM2
+
 printf "${yellow}  8. ${blue}Відключити скрінсейвер? (Y/n)? ${normal}"
-choiceDisableScreensaver=y read choiceDisableScreensaver
+choiceDisableScreensaver=y 
+read choiceDisableScreensaver
+
 printf "${yellow}  9. ${blue}Встановити анімацію вкл\вимкн SmartMirror? (Y/n)? ${normal}"
-choiceMirrorSplash=y read choiceMirrorSplash
+choiceMirrorSplash=y 
+read choiceMirrorSplash
+
 printf "${yellow}  10. ${blue}Відключити заставку включення та 4 полуниці при ввімкненні? (Y/n)? ${normal}"
-choiceDisableBerries=y read choiceDisableBerries
+choiceDisableBerries=y 
+read choiceDisableBerries
+
 printf "${yellow}  11. ${blue}Встановити автозапуск MagicMirror з декстоп-інтерфейсом? (Y/n)? ${normal}"
-choiceAutostartMMWithDesctop=y read choiceAutostartMMWithDesctop
+choiceAutostartMMWithDesctop=y 
+read choiceAutostartMMWithDesctop
+
 printf "${yellow}  12. ${blue}Встановити автозапуск MagicMirror БЕЗ декстоп-інтерфейсу? (Y/n)? ${normal}"
-choiceAutostartMMWithOutDesctop=y read choiceAutostartMMWithOutDesctop
+choiceAutostartMMWithOutDesctop=y 
+read choiceAutostartMMWithOutDesctop
+
 printf "${yellow}  13. ${blue}Клонувати MagicMirror? (Y/n)? ${normal}"
-choiceCloneMagicMirror=y read choiceCloneMagicMirror
+choiceCloneMagicMirror=y 
+read choiceCloneMagicMirror
+
 printf "${yellow}  14. ${blue}Встановити MagicMirror? (Y/n)? ${normal}"
-choiceInstallMagicMirror=y read choiceInstallMagicMirror
+choiceInstallMagicMirror=y 
+read choiceInstallMagicMirror
+
 printf "${yellow}  15. ${blue}Завантажити та встановити модулі MagicMirror? (Y/n)? ${normal}"
-choiceCloneAndInstallMMModules=y read choiceCloneAndInstallMMModules
+choiceCloneAndInstallMMModules=y 
+read choiceCloneAndInstallMMModules
+
 printf "${yellow}  16. ${blue}Завантажити на встановити MMController? (Y/n)? ${normal}"
-choiceCloneAndInstallMMController=y read choiceCloneAndInstallMMController
+choiceCloneAndInstallMMController=y 
+read choiceCloneAndInstallMMController
+
 printf "${yellow}  17. ${blue}Завантажити клієнти MQTT? (Y/n)? ${normal}"
-choiceCloneMQTTClients=y read choiceCloneMQTTClients
+choiceCloneMQTTClients=y 
+read choiceCloneMQTTClients
+
 printf "${yellow}  18. ${blue}Встановити пакети: jsonschema, paho-mqtt та rpi_ws281x? (Y/n)? ${normal}"
-choiceCloneAndInstallPackages=y read choiceCloneAndInstallPackages
+choiceCloneAndInstallPackages=y 
+read choiceCloneAndInstallPackages
 
 # uninstall unnecessary apps on raspberry
 if [[ $choiceDelUnnecessaryApp =~ ^[Yy]$ ]]; then
