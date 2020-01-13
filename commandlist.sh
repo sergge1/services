@@ -14,11 +14,11 @@ sudo smbpasswd -a pi
 sudo systemctl restart smbd
 
 #NodeJS
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 #Docker
-curl -sSL https://get.docker.com | sh
+sudo curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker pi
 
 #Eclipse-mosquitto server
@@ -34,16 +34,19 @@ cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
 cd /home/pi/MagicMirror/modules
 git clone --depth=1 https://github.com/Jopyth/MMM-Remote-Control.git
 git clone --depth=1 https://github.com/ronny3050/email-mirror.git email
-git clone --depth=1 https://github.com/paviro/MMM-PIR-Sensor.git
+git clone --depth=1 https://github.com/sergge1/MMM-PIR-Sensor.git
 git clone --depth=1 https://github.com/javiergayala/MMM-mqtt.git
 git clone --depth=1 https://github.com/cybex-dev/MMM-MQTT-Publisher.git
 git clone --depth=1 https://github.com/AgP42/MMM-SmartWebDisplay.git
 git clone --depth=1 https://github.com/mboskamp/MMM-PIR.git
 
-npm -y install --prefix /home/pi/MagicMirror
+npm -y install --prefix /home/pi/MagicMirror &&
 
-npm -y install --prefix /home/pi/MagicMirror/modules/MMM-Remote-Control
-npm -y install --prefix /home/pi/MagicMirror/modules/email
-npm -y install --prefix /home/pi/MagicMirror/modules/MMM-mqtt
-npm -y install --prefix /home/pi/MagicMirror/modules/MMM-MQTT-Publisher
-npm -y install --prefix /home/pi/MagicMirror/modules/MMM-PIR
+npm -y install --prefix /home/pi/MagicMirror/modules/MMM-Remote-Control &&
+npm -y install --prefix /home/pi/MagicMirror/modules/email &&
+npm -y install --prefix /home/pi/MagicMirror/modules/MMM-mqtt &&
+npm -y install --prefix /home/pi/MagicMirror/modules/MMM-MQTT-Publisher &&
+cd /home/pi/MagicMirror/modules/MMM-PIR
+npm -y install --prefix /home/pi/MagicMirror/modules/MMM-PIR &&
+npm -y install --prefix /home/pi/MagicMirror/modules/MMM-PIR electron-rebuild &&
+/home/pi/MagicMirror/modules/MMM-PIR/node_modules/.bin/electron-rebuild

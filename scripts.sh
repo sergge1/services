@@ -230,7 +230,7 @@ if [[ $choiceCloneAndInstallMMModules =~ ^[Yy]$ ]]; then
 	printf "${green}Клоную модуль email-mirror${normal}\n"
 	git clone --depth=1 https://github.com/ronny3050/email-mirror.git email
 	printf "${green}Клоную модуль MMM-PIR-Sensor${normal}\n"
-	git clone --depth=1 https://github.com/paviro/MMM-PIR-Sensor.git
+	git clone --depth=1 https://github.com/sergge1/MMM-PIR-Sensor.git
 	printf "${green}Клоную модуль MMM-mqtt${normal}\n"
 	git clone --depth=1 https://github.com/javiergayala/MMM-mqtt.git
 	printf "${green}Клоную модуль MMM-MQTT-Publisher${normal}\n"

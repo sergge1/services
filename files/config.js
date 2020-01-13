@@ -306,16 +306,17 @@ var config = {
 	},
 		{
 		module: 'MMM-PIR-Sensor',
-		disabled: true,
+		disabled: false,
 		config: {
 			sensorPin: 11,
 			powerSaving: true,
-			powerSavingDelay: 60
+			powerSavingDelay: 10
 			
 		}
 	},
 	{
-    module: 'MMM-PIR',
+	module: 'MMM-PIR',
+	disabled: true,
     config: {
         sensorPin: 11,
         delay: 10000,
@@ -332,7 +333,7 @@ var config = {
 			height:"100%", 
 			width:"100%", 
                		updateInterval: 0, //in min. Set it to 0 for no refresh (for videos)
-                	NextURLInterval: 0.5, //in min, set it to 0 not to have automatic URL change. If only 1 URL given, it will be updated
+                	NextURLInterval: 2, //in min, set it to 0 not to have automatic URL change. If only 1 URL given, it will be updated
                 	displayLastUpdate: false, //to display the last update of the URL
 					displayLastUpdateFormat: 'ddd - HH:mm:ss', //format of the date and time to display
                 	url: ["https://www.youtube.com/embed/BAeUq-o9mZ8?list=PLPvEveMOPN1S7U0eeXUPzwkIJ0lMZl0Xr&autoplay=1&frameborder=0"], //source of the URL to be displayed
