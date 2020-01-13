@@ -110,7 +110,7 @@ fi
 # install docker
 if [[ $choiceInstDocker =~ ^[Yy]$ ]]; then
 	printf "${boldGreen}Встановлюю Docker${normal}\n"
-	sudo curl -sSL https://get.docker.com | sh
+	curl -sSL https://get.docker.com | sh
 	sudo usermod -aG docker pi
 	printf "${boldGreen}Docker встановлено${normal}\n"
 	echo ''
@@ -135,7 +135,7 @@ fi
 # install NodeJS
 if [[ $choiceInstNodeJS =~ ^[Yy]$ ]]; then
 	printf "${boldGreen}Встановлюю Nodejs${normal}\n"
-	sudo curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+	curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 	sudo apt-get install -y nodejs
 	printf "${boldGreen}Nodejs встановлено${normal}\n"
 	echo ''
@@ -206,7 +206,7 @@ if [[ $choiceCloneMagicMirror =~ ^[Yy]$ ]]; then
 	printf "${green}Видалили папку ~/MagicMirror, якщо така існувала${normal}\n"
 	git clone --depth=1 https://github.com/MichMich/MagicMirror.git /home/pi/MagicMirror
 	printf "${green}Склонували пакет MagicMirror${normal}\n"
-	sudo cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
+	cp -f /home/pi/smsetup/files/config.js /home/pi/MagicMirror/config/config.js
 	printf "${green}Скопіювали файл налаштувань MagicMirror${normal}\n"
 	printf "${boldGreen}Пакет MagicMirror успішно склоновано${normal}\n"
 	echo ''
@@ -253,7 +253,7 @@ if [[ $choiceCloneAndInstallMMModules =~ ^[Yy]$ ]]; then
 	npm -y install --prefix /home/pi/MagicMirror/modules/MMM-MQTT-Publisher
 	echo ''
 	printf "${green}Встановлюю /MMM-PIR${normal}\n"
-	sudo npm -y install --prefix /home/pi/MagicMirror/modules/MMM-PIR
+	npm -y install --prefix /home/pi/MagicMirror/modules/MMM-PIR
 	printf "${green}Модулі встановлено${normal}\n"
 	echo ''
 	printf "${boldGreen}Модулі MagicMirror встановлено${normal}\n"
@@ -290,4 +290,3 @@ if [[ $choiceCloneAndInstallMMController =~ ^[Yy]$ ]]; then
 fi
 
 #use rpi_background.jpg as background picture
-#docker run -p 1883:1883 --restart=always eclipse-mosquitto
